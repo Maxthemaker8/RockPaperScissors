@@ -1,5 +1,12 @@
-let ComputerRPSChoice;
+let computerRPSChoice;
+let userChoice;
 let displayParagraph = document.getElementById('placeholder');
+
+
+
+function getRandomInt(maxIntNotIncluded){
+   return Math.floor(Math.random() * maxIntNotIncluded);
+}
 
 
 function ComputerPlay(){
@@ -15,15 +22,11 @@ function ComputerPlay(){
    }
 
    console.log(`computer chose ${computerRPSChoice}`);
-
 }
 
-function getRandomInt(maxIntNotIncluded){
-   return Math.floor(Math.random() * maxIntNotIncluded);
-}
 
 function UserPlay(){
-   let userChoice =prompt("please pick rock, paper, or scissors").toLowerCase();
+   userChoice =prompt("please pick rock, paper, or scissors").toLowerCase();
 
    if(userChoice!= 'rock' && userChoice!= 'paper' && userChoice!= 'scissors'){
       console.log('not a valid choice! Reload to try again!');
@@ -31,7 +34,8 @@ function UserPlay(){
    }
 
    console.log(`you chose ${userChoice.charAt(0).toUpperCase() + userChoice.slice(1)}`);
-
+}
+function PlayRound(){
    switch(userChoice) {
       case 'rock':
          if(computerRPSChoice == 'Rock'){
@@ -61,11 +65,8 @@ function UserPlay(){
          else{ displayParagraph.innerHTML = 'tie!';}
          break;
    }
-
 }
-
-
-
 
 ComputerPlay();
 UserPlay();
+PlayRound();
